@@ -97,11 +97,15 @@ public class NPRAMembersDirectory {
         System.out.print("Enter name to search: ");
         String search = sc.nextLine();
 
-        boolean found = false;
+        boolean found = true;
+
+        System.out.println("NAME  CONTACT  ADDRESS  HOGS");
+        System.out.println("--------------------------------------");
+
         for (int i = 0; i < count; i++) {
             if (names[i].toLowerCase().contains(search.toLowerCase())) {
-                displayMember(i);
-                found = true;
+                displayMember (i);
+                found = false;
             }
         }
 
@@ -140,6 +144,9 @@ public class NPRAMembersDirectory {
             return;
         }
 
+        System.out.println("NAME | CONTACT | ADDRESS | HOGS");
+        System.out.println("--------------------------------------");
+
         for (int i = 0; i < count; i++) {
             displayMember(i);
         }
@@ -161,11 +168,12 @@ public class NPRAMembersDirectory {
     }
 
     static void displayMember(int i) {
-        System.out.println("----------------------------");
-        System.out.println("Name: " + names[i]);
-        System.out.println("Contact: " + contacts[i]);
-        System.out.println("Address: " + addresses[i]);
-        System.out.println("Number of Hogs: " + hogs[i]);
+        System.out.println(
+            names[i] + " | " +
+            contacts[i] + " | " +
+            addresses[i] + " | " +
+            hogs[i]
+        );
     }
 
     static boolean validateName(String name) {
